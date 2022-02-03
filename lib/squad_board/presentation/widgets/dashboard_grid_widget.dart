@@ -2,6 +2,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_kick_starter/squad_board/model/dashboard_grid_display_model.dart';
 import 'package:flutter_kick_starter/common/constants/ui_constant.dart';
+import 'package:flutter/material.dart';
 
 class DashboardGridWidget extends StatelessWidget {
   final DashboardGridDisplayModel _displayModel;
@@ -14,6 +15,8 @@ class DashboardGridWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(Dimens.small),
-        child: Text(_displayModel.title));
+        child: Container(
+            color: Colors.red,
+            child: new Center(child: new Text(_displayModel.title, textAlign: TextAlign.center,))));
   }
 }
