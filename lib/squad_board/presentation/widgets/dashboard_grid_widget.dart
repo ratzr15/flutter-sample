@@ -16,7 +16,11 @@ class DashboardGridWidget extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.all(Dimens.small),
         child: Container(
-            color: Colors.red,
-            child: new Center(child: new Text(_displayModel.title, textAlign: TextAlign.center,))));
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                color: DesignColor.background),
+            child: new Center(
+                child: new Text(_displayModel.title,
+                    textAlign: TextAlign.center))));
   }
 }
