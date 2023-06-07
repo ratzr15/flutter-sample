@@ -14,13 +14,18 @@ class DashboardGridWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(Dimens.small),
-        child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                color: DesignColor.background),
-            child: new Center(
-                child: new Text(_displayModel.title,
-                    textAlign: TextAlign.center))));
+      padding: const EdgeInsets.all(Dimens.small),
+      child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8.0),
+            color: DesignColor.background),
+        child: Center(
+          child: Text(
+            _displayModel.title,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ),
+    );
   }
 }
