@@ -1,6 +1,6 @@
 // @dart = 2.8
 import 'package:flutter/material.dart';
-import 'package:flutter_kick_starter/squad_board/presentation/screen/dashbpard_page.dart';
+import 'package:flutter_kick_starter/squad_board/presentation/screen/dashbpard_page_widget.dart';
 
 void main() {
   runApp(MyApp());

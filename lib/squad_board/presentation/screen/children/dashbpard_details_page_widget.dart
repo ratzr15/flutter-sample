@@ -11,6 +11,9 @@ class DashboardDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: _TitleBarWidget(),
+        leading: const BackButton(
+          color: Colors.white,
+        ),
         elevation: 2.0,
       ),
       backgroundColor: themeColor,
@@ -19,22 +22,8 @@ class DashboardDetailsScreen extends StatelessWidget {
   }
 
   Widget _sliverGrid(BuildContext context) {
-    return MediaQuery.removePadding(
-      context: context,
-      removeTop: true,
-      child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 20,
-            crossAxisSpacing: 20,
-          ),
-          itemCount: 300,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              color: Colors.amber,
-              child: Center(child: Text('$index')),
-            );
-          }),
+    return Container(
+      color: Colors.orangeAccent,
     );
   }
 }
@@ -47,7 +36,7 @@ class _TitleBarWidget extends StatelessWidget {
     return Row(children: [
       Expanded(
         child: Text(
-          'Categories',
+          'Details',
           overflow: TextOverflow.ellipsis,
         ),
       ),

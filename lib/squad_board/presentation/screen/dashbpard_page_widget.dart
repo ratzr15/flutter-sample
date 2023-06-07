@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_kick_starter/squad_board/model/dashboard_grid_display_model.dart';
 import 'package:flutter_kick_starter/squad_board/presentation/widgets/dashboard_grid_widget.dart';
 
+import 'children/dashbpard_details_page_widget.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key key}) : super(key: key);
 
@@ -50,9 +52,19 @@ class DashboardScreen extends StatelessWidget {
           ),
           itemCount: 300,
           itemBuilder: (BuildContext context, int index) {
-            return Card(
-              color: Colors.amber,
-              child: Center(child: Text('$index')),
+            return GestureDetector(
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DashboardDetailsScreen(),
+                  ),
+                  (Route<dynamic> route) => false,
+                );
+              },
+              child: DashboardGridWidget(
+                displayModel: DashboardGridDisplayModel(title: 'Vegetables'),
+              ),
             );
           }),
     );
