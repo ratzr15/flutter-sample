@@ -22,24 +22,6 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildButton(VoidCallback onPressed, List<Text> textChildren) {
-    return ElevatedButton(
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        overlayColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          if (states.contains(MaterialState.focused)) return Colors.red;
-          return null;
-        }),
-      ),
-      onPressed: () {
-        onPressed();
-      },
-      child: textChildren[0],
-    );
-  }
-
   Widget _sliverGrid(BuildContext context) {
     return MediaQuery.removePadding(
       context: context,
@@ -59,7 +41,7 @@ class DashboardScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => DashboardDetailsScreen(),
                   ),
-                  (Route<dynamic> route) => false,
+                  (Route<dynamic> route) => true,
                 );
               },
               child: DashboardGridWidget(
