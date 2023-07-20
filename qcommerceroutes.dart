@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-class Dummy extends StatelessWidget {
-  const Dummy();
+class Qcommerceroutes extends StatelessWidget {
+  const Qcommerceroutes();
 
   @override
   Widget build(BuildContext context) {
