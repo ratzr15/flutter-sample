@@ -1,9 +1,8 @@
 // @dart = 2.8
+import 'package:design_system/ds_foundations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_kick_starter/squad_board/model/dashboard_grid_display_model.dart';
 import 'package:flutter_kick_starter/squad_board/presentation/widgets/dashboard_grid_widget.dart';
-
-import 'children/dashbpard_details_page_widget.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key key}) : super(key: key);
@@ -62,7 +61,7 @@ class _TitleBarWidget extends StatelessWidget {
       Container(
         width: 20,
         height: 20,
-        color: Colors.amber,
+        color: DesignColor.colorNeutralWhite,
       )
     ]);
   }

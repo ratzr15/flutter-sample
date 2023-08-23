@@ -30,6 +30,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
 
+  # in-house dependencies
+  design_system:
+    git:
+      url: git@github.com:talabat-dhme/tlb-flutter-marshmallow.git
+      ref: 3.0.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -45,7 +51,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
+  # To add assets to your application, add an assets section, like this: 
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
