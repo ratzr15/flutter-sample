@@ -36,13 +36,7 @@ class DashboardScreen extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DashboardDetailsScreen(),
-                  ),
-                  (Route<dynamic> route) => true,
-                );
+                Navigator.pushNamed(context, '/dashboard_details');
               },
               child: DashboardGridWidget(
                 displayModel: DashboardGridDisplayModel(title: 'Vegetables'),

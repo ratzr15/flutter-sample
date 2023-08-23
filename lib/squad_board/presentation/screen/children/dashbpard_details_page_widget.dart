@@ -41,7 +41,9 @@ class DashboardDetailsScreen extends StatelessWidget {
               height: _Constants.checkoutButtonHeight,
               width: MediaQuery.of(context).size.width -
                   _Constants.buttonWidthPadding,
-              child: _buildButton(() {}, [
+              child: _buildButton(() {
+                Navigator.pushNamed(context, '/dashboard_details');
+              }, [
                 Text('Checkout'),
               ]),
             ),
