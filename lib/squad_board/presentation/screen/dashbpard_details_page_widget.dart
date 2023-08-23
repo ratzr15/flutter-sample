@@ -1,5 +1,7 @@
 // @dart = 2.8
 import 'package:flutter/material.dart';
+import 'package:flutter_kick_starter/squad_board/presentation/model/banner_display_model.dart';
+import 'package:flutter_kick_starter/squad_board/presentation/widgets/banner_list_widget.dart';
 
 class DashboardDetailsScreen extends StatelessWidget {
   const DashboardDetailsScreen({Key key}) : super(key: key);
@@ -25,32 +27,34 @@ class DashboardDetailsScreen extends StatelessWidget {
   }
 
   Widget _sliverGrid(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        height: _Constants.bottomContainerHeight,
-        color: Colors.orange,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            _CampaignBarWidget(),
-            SizedBox(
-              height: _Constants.verticalPadding,
-            ),
-            SizedBox(
-              height: _Constants.checkoutButtonHeight,
-              width: MediaQuery.of(context).size.width -
-                  _Constants.buttonWidthPadding,
-              child: _buildButton(() {
-                Navigator.pushNamed(context, '/dashboard_details');
-              }, [
-                Text('Checkout'),
-              ]),
-            ),
-          ],
-        ),
-      ),
-    );
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Expanded(
+          child: CustomScrollView(
+        slivers: [
+          BannerListWidget(
+            banners: [
+              BannerDisplayModel(
+                bannerUrl:
+                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmart-logo.png',
+                bannerId: 'bannerId2',
+              ),
+              BannerDisplayModel(
+                bannerUrl:
+                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmart-logso.png',
+                bannerId: 'bannerId1',
+              ),
+              BannerDisplayModel(
+                bannerUrl:
+                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmsart-logo.png',
+                bannerId: 'bannerId44',
+              )
+            ],
+            onTap: (index) {},
+            onBannerImageLoadFailure: (url, stackTrace) {},
+          ),
+        ],
+      ))
+    ]);
   }
 
   Widget _buildButton(VoidCallback onPressed, List<Text> textChildren) {
