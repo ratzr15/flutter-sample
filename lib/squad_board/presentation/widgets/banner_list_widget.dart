@@ -11,7 +11,7 @@ class BannerListWidget extends StatelessWidget {
   static const _horizontalPadding = Dimens.sizeS;
 
   final List<BannerDisplayModel> banners;
-  final Function(int) onTap;
+  final Function(String) onTap;
   final void Function(String url, StackTrace? stackTrace)
       onBannerImageLoadFailure;
 
@@ -45,7 +45,7 @@ class BannerListWidget extends StatelessWidget {
                     itemCount: banners.length,
                     itemBuilder: (context, index) {
                       final model = banners[index];
-                      return _buildSubCategoryBannerWidget(
+                      return _buildBannerWidget(
                         context,
                         model,
                         index,
@@ -61,15 +61,15 @@ class BannerListWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildSubCategoryBannerWidget(
+  Widget _buildBannerWidget(
     BuildContext context,
     BannerDisplayModel model,
     int index,
   ) {
     return BannerWidget(
-      key: SubCategoryBannersWidgetKeys.createBannersKey(model.bannerId),
+      key: BannersWidgetKeys.createBannersKey(model.bannerId),
       model: model,
-      onTap: () => onTap(index),
+      onTap: (bannerId) => onTap(bannerId),
       onBannerImageLoadFailure: (url, stackTrace) =>
           onBannerImageLoadFailure(url, stackTrace),
     );
@@ -88,12 +88,12 @@ class BannerListWidget extends StatelessWidget {
   }
 }
 
-abstract class SubCategoryBannersWidgetKeys {
+abstract class BannersWidgetKeys {
   static const bannerListKey = Key('banners.list');
 
   static Key createBannersKey(String title) {
     return Key('banners.item.$title');
   }
 
-  SubCategoryBannersWidgetKeys._();
+  BannersWidgetKeys._();
 }

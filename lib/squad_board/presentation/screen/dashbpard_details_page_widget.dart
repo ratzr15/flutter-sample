@@ -1,4 +1,5 @@
 // @dart = 2.8
+import 'package:design_system/ds_foundations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_kick_starter/squad_board/presentation/model/banner_display_model.dart';
 import 'package:flutter_kick_starter/squad_board/presentation/widgets/banner_list_widget.dart';
@@ -10,19 +11,15 @@ class DashboardDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const themeColor = Colors.white;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: _TitleBarWidget(),
-        leading: BackButton(
-          color: Colors.white,
-          onPressed: () => {
-            Navigator.of(context).pop(),
-          },
+    return MaterialApp(
+      home: Scaffold(
+        body: Directionality(
+          textDirection: TextDirection.ltr,
+          child: Container(
+              padding: const EdgeInsets.all(Dimens.sizeXxs),
+              child: _sliverGrid(context)),
         ),
-        elevation: 2.0,
       ),
-      backgroundColor: themeColor,
-      body: _sliverGrid(context),
     );
   }
 
@@ -34,20 +31,9 @@ class DashboardDetailsScreen extends StatelessWidget {
           BannerListWidget(
             banners: [
               BannerDisplayModel(
-                bannerUrl:
-                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmart-logo.png',
+                bannerUrl: 'https://test.com',
                 bannerId: 'bannerId2',
               ),
-              BannerDisplayModel(
-                bannerUrl:
-                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmart-logso.png',
-                bannerId: 'bannerId1',
-              ),
-              BannerDisplayModel(
-                bannerUrl:
-                    'https://images.deliveryhero.io/image/talabat/NFV/promotion-widget/tmsart-logo.png',
-                bannerId: 'bannerId44',
-              )
             ],
             onTap: (index) {},
             onBannerImageLoadFailure: (url, stackTrace) {},

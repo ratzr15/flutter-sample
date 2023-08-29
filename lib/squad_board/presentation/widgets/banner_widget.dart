@@ -6,7 +6,7 @@ import '../model/banner_display_model.dart';
 
 class BannerWidget extends StatelessWidget {
   final BannerDisplayModel model;
-  final VoidCallback? onTap;
+  final Function(String) onTap;
   static const _cornerRadius = Dimens.sizeXxs;
   static const _margin = Dimens.sizeS;
   final Function(String url, StackTrace? stackTrace) onBannerImageLoadFailure;
@@ -14,7 +14,7 @@ class BannerWidget extends StatelessWidget {
   const BannerWidget({
     Key? key,
     required this.model,
-    this.onTap,
+    required this.onTap,
     required this.onBannerImageLoadFailure,
   }) : super(key: key);
 
@@ -22,12 +22,14 @@ class BannerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final bannerImageUrl = model.bannerUrl;
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap(model.bannerId),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(_cornerRadius),
         child: DSImageBase(
           image: bannerImageUrl,
-          key: SubCategoryBannerWidgetKeys.createBannerImgeKey(model.bannerUrl),
+          key: BannerWidgetKeys.createBannerImgeKey(
+            model.bannerUrl,
+          ),
           fit: BoxFit.fill,
           width: _bannerWidth(context),
           height: _bannerHeight(context),
@@ -52,7 +54,7 @@ class BannerWidget extends StatelessWidget {
   }
 }
 
-abstract class SubCategoryBannerWidgetKeys {
+abstract class BannerWidgetKeys {
   static const bannerListKey = Key('banners.list');
 
   static Key createBannerImgeKey(String title) {
